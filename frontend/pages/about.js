@@ -1,10 +1,9 @@
-import Link from "next/link";
+import Layout from "../components/Layout";
 
 export default function About() {
   return (
-    <div>
+    <Layout title="About DJ Event">
       <h2>this is about page</h2>
-      <Link href="/">Home</Link>
-    </div>
+    </Layout>
   );
 }

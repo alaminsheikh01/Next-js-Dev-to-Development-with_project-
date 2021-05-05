@@ -1,13 +1,9 @@
-import { useRouter } from "next/router";
+import Layout from "../../components/Layout";
 
 export default function EventSinglePage() {
-  const router = useRouter();
-  console.log(router);
   return (
-    <div>
+    <Layout>
       <h3>this is evetn single page </h3>
-      <h2>{router.query.slug}</h2>
-      <button onClick={() => router.push("/")}>Click me</button>
-    </div>
+    </Layout>
   );
 }

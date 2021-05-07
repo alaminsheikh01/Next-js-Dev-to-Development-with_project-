@@ -1,8 +1,24 @@
-import Layout from "../../components/Layout";
-export default function EventHomePage() {
+import Layout from "@/components/Layout";
+import { API_URL } from "@/config/index";
+import EventItem from "@/components/EventsItem";
+
+export default function EventPage({ events }) {
   return (
     <Layout>
-      <h2>this is event home page</h2>
+      <h1>Events</h1>
+      {events.length === 0 && <h3>No events to show</h3>}
+      {events.map((evt) => (
+        <EventItem key={evt.id} evt={evt} />
+      ))}
     </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(`${API_URL}/api/events`);
+  const events = await res.json();
+
+  return {
+    props: { events },
+  };
 }

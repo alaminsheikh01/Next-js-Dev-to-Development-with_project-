@@ -22,7 +22,7 @@ export default function Home({ events }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=1`);
+  const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=2`);
   const events = await res.json();
 
   return {
